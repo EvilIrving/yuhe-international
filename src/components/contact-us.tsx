@@ -144,7 +144,7 @@ const ContactUs: React.FC = () => {
                       className="w-full rounded-full bg-primary p-3 text-center text-base font-semibold text-white hover:bg-primary/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
                       type="submit"
                     >
-                      点一下发出去
+                      发送给我们
                     </button>
                   </div>
                 </form>
