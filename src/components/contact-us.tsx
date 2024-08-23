@@ -1,6 +1,6 @@
 import React from "react";
-import { Mail, Phone } from "lucide-react";
-
+import {  Mail, Phone } from "lucide-react";
+import Link from "next/link";
 const ContactUs: React.FC = () => {
   return (
     <section className="bg-light-bg py-[120px] dark:bg-[#14102C]">
@@ -14,10 +14,10 @@ const ContactUs: React.FC = () => {
                 data-wow-delay="0s"
               >
                 <span className="mb-3 text-lg font-bold uppercase text-primary sm:text-xl">
-                  Contact Us
+                  联系我们
                 </span>
                 <h2 className="mb-3 text-3xl font-bold leading-tight text-black dark:text-white md:text-[45px]">
-                  Let's talk about your problem.
+                  您希望了解任何问题都可以联系我们
                 </h2>
               </div>
             </div>
@@ -29,10 +29,10 @@ const ContactUs: React.FC = () => {
                     data-wow-delay="0s"
                   >
                     <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                      Our Location
+                      办公地址
                     </h3>
                     <p className="text-base font-medium leading-loose text-body-color-2 dark:text-body-color">
-                      401 Broadway, 24th Floor, Orchard Cloud View, London
+                      Obuasi, Ashanti Region, Ghana
                     </p>
                   </div>
                 </div>
@@ -44,13 +44,10 @@ const ContactUs: React.FC = () => {
                     data-wow-delay="0s"
                   >
                     <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                      Email Address
+                      Email
                     </h3>
                     <p className="text-base font-medium leading-loose text-body-color-2 dark:text-body-color">
-                      info@yourdomain.com
-                    </p>
-                    <p className="text-base font-medium leading-loose text-body-color-2 dark:text-body-color">
-                      contact@yourdomain.com
+                      dong.yy1916@gmail.com
                     </p>
                   </div>
                 </div>
@@ -62,13 +59,13 @@ const ContactUs: React.FC = () => {
                     data-wow-delay="0s"
                   >
                     <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                      Phone Number
+                      联系电话：
                     </h3>
                     <p className="text-base font-medium leading-loose text-body-color-2 dark:text-body-color">
-                      +990 846 73644
+                      +233 594 291436
                     </p>
                     <p className="text-base font-medium leading-loose text-body-color-2 dark:text-body-color">
-                      +550 9475 4543
+                      +233 540 125194
                     </p>
                   </div>
                 </div>
@@ -80,10 +77,12 @@ const ContactUs: React.FC = () => {
                     data-wow-delay="0s"
                   >
                     <h3 className="mb-4 text-lg font-semibold text-dark dark:text-white">
-                      How Can We Help?
+                      先添加我们的WhatsApp
                     </h3>
                     <p className="text-base font-medium leading-loose text-body-color-2 dark:text-body-color">
-                      Tell us your problem we will get back to you ASAP.
+                      <Link href="https://wa.me/233540125194">
+                        +233540125194
+                      </Link>
                     </p>
                   </div>
                 </div>
@@ -96,7 +95,7 @@ const ContactUs: React.FC = () => {
             <div className="opacity-100 transform-none">
               <div className="sm:14 wow fadeInUp rounded-md bg-white px-8 py-12 dark:bg-dark">
                 <h2 className="mb-8 text-2xl font-bold text-dark dark:text-white sm:text-[34px] lg:text-2xl xl:text-[34px]">
-                  Send us a Message
+                  给我们发消息
                 </h2>
                 <form>
                   <div className="mb-4">
@@ -104,13 +103,13 @@ const ContactUs: React.FC = () => {
                       className="block text-gray-700 text-sm font-bold mb-2"
                       htmlFor="name"
                     >
-                      Full Name*
+                      怎么称呼*
                     </label>
                     <input
                       className="w-full rounded-md border border-[#E9E9E9] border-opacity-50 bg-transparent px-5 py-3 text-base font-medium text-body-color outline-none focus:border-primary dark:border-opacity-20 dark:bg-white dark:bg-opacity-5"
                       type="text"
                       id="name"
-                      placeholder="Enter your full name"
+                      placeholder="请填写您的名字"
                     />
                   </div>
                   <div className="mb-5">
@@ -118,13 +117,13 @@ const ContactUs: React.FC = () => {
                       className="mb-2 block text-sm font-medium text-dark dark:text-white"
                       htmlFor="email"
                     >
-                      Email Address*
+                      您的邮箱*
                     </label>
                     <input
                       className="w-full rounded-md border border-[#E9E9E9] border-opacity-50 bg-transparent px-5 py-3 text-base font-medium text-body-color outline-none focus:border-primary dark:border-opacity-20 dark:bg-white dark:bg-opacity-5"
                       type="email"
                       id="email"
-                      placeholder="Enter your email address"
+                      placeholder="请输入您的邮箱"
                     />
                   </div>
                   <div className="mb-6">
@@ -132,13 +131,13 @@ const ContactUs: React.FC = () => {
                       className="block text-gray-700 text-sm font-bold mb-2"
                       htmlFor="message"
                     >
-                      Message*
+                      您想咨询什么问题*
                     </label>
                     <textarea
-                      className="w-full rounded-md border border-[#E9E9E9] border-opacity-50 bg-transparent px-5 py-3 text-base font-medium text-body-color outline-none focus:border-primary dark:border-opacity-20 dark:bg-white dark:bg-opacity-5w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full rounded-md border border-[#E9E9E9] border-opacity-50 bg-transparent px-5 py-3 text-base font-medium text-body-color outline-none focus:border-primary dark:border-opacity-20 dark:bg-white dark:bg-opacity-5"
                       id="message"
                       rows={6}
-                      placeholder="Type your message"
+                      placeholder="请输入您的问题"
                     ></textarea>
                   </div>
                   <div>
@@ -146,7 +145,7 @@ const ContactUs: React.FC = () => {
                       className="w-full rounded-full bg-primary p-3 text-center text-base font-semibold text-white hover:bg-opacity-90 dark:bg-white dark:text-black dark:hover:bg-opacity-90"
                       type="submit"
                     >
-                      Send Message
+                      点一下发出去
                     </button>
                   </div>
                 </form>

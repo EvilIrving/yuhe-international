@@ -21,6 +21,11 @@ const config = {
         "2xl": "1320px",
       },
     },
+    gradientColorStops: () => ({
+      primary: "hsl(var(--primary))",
+      secondary: "hsl(var(--secondary))",
+      danger: "hsl(var(--destructive))",
+    }),
     extend: {
       colors: {
         border: "hsl(var(--border))",

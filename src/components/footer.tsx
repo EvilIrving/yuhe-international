@@ -1,63 +1,46 @@
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import Logo from "@/components/logo";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import { footerConfig } from "@/config";
 const Footer = () => {
+  const {
+    description,
+    socialLinks,
+    quickLinks,
+    supports,
+    copyrightText,
+    footerShape1,
+    footerShape2,
+  } = footerConfig;
+
   return (
     <footer className="relative z-10 pt-[120px]">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-4/12">
             <div className="wow fadeInUp mb-14 max-w-[330px] xl:mb-20">
-              <div className="w-64 h-16">
-                <Link className="mb-6 inline-block" href="/about">
-                  <Image
-                    src="/static/logo-white.svg"
-                    width={146}
-                    height={46}
-                    alt="Image"
-                    className="hidden dark:block"
-                  />
-                  <Image
-                    src="/static/logo.svg"
-                    width={146}
-                    height={46}
-                    alt="Image"
-                    className="dark:hidden"
-                  />
-                </Link>
+              <div className="w-36">
+                <Logo />
               </div>
-
-              <p className="mb-10 text-base font-medium text-body-color-2 dark:text-body-color">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-                natus distinctio culpa quod deleniti necessitatibus enim
-                doloremque perspiciatis nisi tempore. A repellat nulla assumenda
-                nostrum adipisci repudiandae atque voluptatibus nisi.
+              <p className="mb-10 text-sm font-normal text-body-color-2 dark:text-body-color">
+                {description}
               </p>
               <div className="flex items-center space-x-3">
-                <Link
-                  href={"#"}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-light-bg text-body-color-2 hover:bg-primary hover:text-white dark:bg-dark dark:text-white dark:hover:bg-primary"
-                >
-                  <Image
-                    width={20}
-                    height={20}
-                    src="/social-link/whatsapp.svg"
-                    alt="Image"
-                  />
-                </Link>
-                <Link
-                  href={"#"}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-light-bg text-body-color-2 hover:bg-primary hover:text-white dark:bg-dark dark:text-white dark:hover:bg-primary"
-                >
-                  <Image
-                    width={20}
-                    height={20}
-                    src="/social-link/gmail.svg"
-                    alt="Image"
-                  />
-                </Link>
+                {socialLinks.map((link, index) => (
+                  <Link
+                    key={index}
+                    href={link.href}
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-light-bg text-body-color-2 hover:bg-primary hover:text-white dark:bg-dark dark:text-white dark:hover:bg-primary"
+                  >
+                    <Image
+                      width={20}
+                      height={20}
+                      src={link.icon}
+                      alt="Social Link"
+                    />
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -67,36 +50,15 @@ const Footer = () => {
                 Quick Links
               </h4>
               <div className="space-y-3">
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  What is ico
-                </Link>
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  Roadmap
-                </Link>
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  Whitepaper
-                </Link>
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  Social Network
-                </Link>
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  Join Us Now
-                </Link>
+                {quickLinks.map((link, index) => (
+                  <Link
+                    key={index}
+                    className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
+                    href={link.href}
+                  >
+                    {link.title}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -106,43 +68,22 @@ const Footer = () => {
                 Supports
               </h4>
               <div className="space-y-3">
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  Setting &amp; Privacy
-                </Link>
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  Help &amp; Support
-                </Link>
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  Terms &amp; Conditions
-                </Link>
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  24/7 Supports
-                </Link>
-                <Link
-                  className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
-                  href="#"
-                >
-                  On Point FAQ
-                </Link>
+                {supports.map((support, index) => (
+                  <Link
+                    key={index}
+                    className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
+                    href={support.href}
+                  >
+                    {support.title}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
         </div>
         <div className="border-t border-[#F3F4F4] py-7 text-center dark:border-[#2D2C4A]">
           <p className="text-base font-medium leading-loose text-body-color-2 dark:text-body-color">
-            © Crypto - All Rights Reserved, Crafted by Next.js Templates
+            {copyrightText}
           </p>
         </div>
       </div>
@@ -151,17 +92,17 @@ const Footer = () => {
         <Image
           width={158}
           height={392}
-          src="/static/footer-shape-2.svg"
-          alt="Image"
-        ></Image>
+          src={footerShape2}
+          alt="Footer Shape 2"
+        />
       </div>
       <div className="absolute bottom-0 right-0 -z-10">
         <Image
           width={157}
           height={254}
-          src="/static/footer-shape-1.svg"
-          alt="Image"
-        ></Image>
+          src={footerShape1}
+          alt="Footer Shape 1"
+        />
       </div>
     </footer>
   );

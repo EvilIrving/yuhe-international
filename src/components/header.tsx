@@ -1,80 +1,44 @@
 "use client";
-
-import { useState } from "react";
-import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import Image from "next/image";
-import MenuNav from "./navbar/menu-nav";
+import { useState, useEffect } from "react";
+import Logo from "@/components/logo";
+import MenuNav from "@/components/menus";
 import { ModeToggle } from "./theme-toggle";
-const Header = () => { 
-  const [language, setLanguage] = useState("en"); 
+const Header = () => {
+  // const [language, setLanguage] = useState("en");
 
-  const menu = {
-    Home: {
-      path: "/",
-      icon: "home",
-      name: "首页",
-    },
-    Service: [
-      {
-        path: "/package",
-        icon: "package",
-        name: "航运服务",
-      },
-      {
-        path: "/freight",
-        icon: "home",
-        name: "货运服务",
-      },
-      {
-        path: "/kou",
-        icon: "home",
-        name: "关口服务",
-      },
-    ],
-    AboutUs: {
-      path: "/about-us",
-      icon: "aboutUs",
-      name: "关于我们",
-    },
-  };
+  const [isScrolled, setIsScrolled] = useState(false);
 
- 
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      setIsScrolled(offset > 100); // 调整阈值
+    };
 
-  const handleLanguageChange = () => {
-    setLanguage(language === "en" ? "zh" : "en");
-  };
+    window.addEventListener("scroll", handleScroll);
 
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <header className="container max-w-[1430px]">
-      <div className="relative -mx-4 flex items-center justify-between">
-        {" "}
-        <div className="w-60 max-w-full px-4">
-          <Link className="block w-full py-6 lg:py-5" href="/about">
-            <Image
-              src="/static/logo-white.svg"
-              width={146}
-              height={46}
-              alt="Image"
-              className="hidden dark:block"
-            />
-            <Image
-              src="/static/logo.svg"
-              width={146}
-              height={46}
-              alt="Image"
-              className="dark:hidden"
-            />
-          </Link>
+    <header
+      className={`fixed top-0 z-50 flex w-full items-center ${
+        isScrolled
+          ? "bg-white bg-opacity-80 shadow-sticky backdrop-blur-sm dark:bg-dark dark:bg-opacity-80"
+          : "bg-transparent dark:bg-transparent"
+      }`}
+    >
+      <div className="container max-w-[1430px] ">
+        <div className="relative -mx-4 flex items-center justify-between">
+          <div className="w-60 max-w-full px-4">
+            <Logo />
+          </div>
           <MenuNav />
-        </div>
-        <div className="flex items-center">
-          <Avatar>
-            <AvatarImage src="/logo.png" alt="Avatar" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <ModeToggle />
-          {/* <button onClick={handleLanguageChange}>Toggle Language</button> */}
+          <div className="w-24 flex items-center justify-around">
+            <ModeToggle />
+            <ModeToggle />
+            {/* <button onClick={handleLanguageChange}>Toggle Language</button> */}
+          </div>
         </div>
       </div>
     </header>

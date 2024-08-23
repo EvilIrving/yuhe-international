@@ -26,6 +26,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
+          <div className="z-[99999]">
+            <div className="z-[99999] fixed inset-4 pointer-events-none"></div>
+          </div>
           {children}
           <Footer />
         </ThemeProvider>
