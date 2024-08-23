@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 
 const Products = () => {
   const products = [
@@ -48,20 +48,20 @@ const Products = () => {
           <div className="">
             <div className="mx-auto p-8">
               <div className="fadeInUp mx-auto mb-16 max-w-[590px] text-center md:mb-20">
-                <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight text-center mb-8">
+                <h3 className="mb-8 scroll-m-20 text-center text-2xl font-semibold tracking-tight">
                   Our Products
                 </h3>
                 <p className="text-sm font-medium text-gray-400 dark:text-white">
                   服务团队是一支技术精湛、专业负责的工程师团队。他们经过徐工集团的严格培训和考核，具备丰富的技术知识和实践经验。
                 </p>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
                 {products.map((product, index) => (
                   <div
                     key={index}
-                    className="flex flex-col items-center p-4 border rounded-lg shadow-sm hover:shadow-lg transition-shadow relative"
+                    className="relative flex flex-col items-center rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg"
                   >
-                    <div className="w-48 h-56 mb-2">
+                    <div className="mb-2 h-56 w-48">
                       <Image
                         width={150}
                         height={150}

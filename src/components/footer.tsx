@@ -1,7 +1,8 @@
-import Logo from "@/components/logo";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
+import Logo from "@/components/logo";
 import { footerConfig } from "@/config";
 const Footer = () => {
   const {
@@ -23,7 +24,7 @@ const Footer = () => {
               <div className="w-36">
                 <Logo />
               </div>
-              <p className="mb-10 text-sm font-normal text-body-color-2 dark:text-body-color">
+              <p className="text-body-color-2 dark:text-body-color mb-10 text-sm font-normal">
                 {description}
               </p>
               <div className="flex items-center space-x-3">
@@ -31,7 +32,7 @@ const Footer = () => {
                   <Link
                     key={index}
                     href={link.href}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-light-bg text-body-color-2 hover:bg-primary hover:text-white dark:bg-dark dark:text-white dark:hover:bg-primary"
+                    className="text-body-color-2 dark:bg-dark flex size-10 items-center justify-center rounded-full bg-light-bg hover:bg-primary hover:text-white dark:text-white dark:hover:bg-primary"
                   >
                     <Image
                       width={20}
@@ -53,7 +54,7 @@ const Footer = () => {
                 {quickLinks.map((link, index) => (
                   <Link
                     key={index}
-                    className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
+                    className="text-body-color-2 dark:text-body-color block text-base font-medium hover:text-primary dark:hover:text-primary"
                     href={link.href}
                   >
                     {link.title}
@@ -71,7 +72,7 @@ const Footer = () => {
                 {supports.map((support, index) => (
                   <Link
                     key={index}
-                    className="block text-base font-medium text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-primary"
+                    className="text-body-color-2 dark:text-body-color block text-base font-medium hover:text-primary dark:hover:text-primary"
                     href={support.href}
                   >
                     {support.title}
@@ -82,7 +83,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-[#F3F4F4] py-7 text-center dark:border-[#2D2C4A]">
-          <p className="text-base font-medium leading-loose text-body-color-2 dark:text-body-color">
+          <p className="text-body-color-2 dark:text-body-color text-base font-medium leading-loose">
             {copyrightText}
           </p>
         </div>

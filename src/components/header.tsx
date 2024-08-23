@@ -1,8 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import { ModeToggle } from "./theme-toggle";
+
 import Logo from "@/components/logo";
 import MenuNav from "@/components/menus";
-import { ModeToggle } from "./theme-toggle";
 const Header = () => {
   // const [language, setLanguage] = useState("en");
 
@@ -24,7 +26,7 @@ const Header = () => {
     <header
       className={`fixed top-0 z-50 flex w-full items-center ${
         isScrolled
-          ? "bg-white bg-opacity-80 shadow-sticky backdrop-blur-sm dark:bg-dark dark:bg-opacity-80"
+          ? "shadow-sticky dark:bg-dark/80 bg-white/80 backdrop-blur-sm"
           : "bg-transparent dark:bg-transparent"
       }`}
     >
@@ -34,7 +36,7 @@ const Header = () => {
             <Logo />
           </div>
           <MenuNav />
-          <div className="w-24 flex items-center justify-around">
+          <div className="flex w-24 items-center justify-around">
             <ModeToggle />
             <ModeToggle />
             {/* <button onClick={handleLanguageChange}>Toggle Language</button> */}

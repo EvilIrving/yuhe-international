@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
+
 import { headerConfig } from "@/config";
 interface MenuItem {
   label: string;
@@ -30,26 +31,26 @@ const MenuItemComponent: React.FC<MenuItemComponentProps> = ({ item }) => {
 
   return (
     <li
-      className="relative group px-4 py-2"
+      className="group relative px-4 py-2"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
       <Link href={item.href}>
-        <span className="flex py-2 text-lg font-semibold text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-white lg:ml-2 lg:inline-flex lg:py-5 xl:ml-3 2xl:ml-3 text-black">
+        <span className="text-body-color-2 dark:text-body-color flex py-2 text-lg font-semibold text-black hover:text-primary dark:hover:text-white lg:ml-2 lg:inline-flex lg:py-5 xl:ml-3 2xl:ml-3">
           {item.label}
         </span>
       </Link>
 
       {item.subItems && (
         <ul
-          className={`w-64 absolute left-0 mt-4 p-2 bg-white border rounded-lg shadow-lg z-50 transition-opacity duration-200 ${
-            isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          className={`absolute left-0 z-50 mt-4 w-64 rounded-lg border bg-white p-2 shadow-lg transition-opacity duration-200 ${
+            isOpen ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         >
           {item.subItems.map((subItem) => (
             <li key={subItem.label}>
               <Link href={subItem.href}>
-                <span className="ud-menu-scroll flex py-2 text-lg font-semibold text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-white lg:ml-5 lg:inline-flex lg:py-3 xl:ml-5 2xl:ml-7 text-black">
+                <span className="ud-menu-scroll text-body-color-2 dark:text-body-color flex py-2 text-lg font-semibold text-black hover:text-primary dark:hover:text-white lg:ml-5 lg:inline-flex lg:py-3 xl:ml-5 2xl:ml-7">
                   {subItem.label}
                 </span>
               </Link>

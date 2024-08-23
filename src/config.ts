@@ -29,7 +29,8 @@ export const footerConfig = {
     { title: "24/7 Supports", href: "#" },
     { title: "On Point FAQ", href: "#" },
   ],
-  copyrightText: "© Crypto - All Rights Reserved, Crafted by Next.js Templates",
+  copyrightText:
+    "© Crypto - All Rights Reserved, Crafted by Next.js Templates",
   footerShape1: "/static/footer-shape-1.svg",
   footerShape2: "/static/footer-shape-2.svg",
 };

@@ -6,7 +6,7 @@ export default function WeTeam() {
       <div className="container">
         <div className="w-full">
           <div className="fadeInUp mx-auto mb-16 max-w-[590px] text-center md:mb-20">
-            <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight text-center mb-8">
+            <h3 className="mb-8 scroll-m-20 text-center text-2xl font-semibold tracking-tight">
               我们的团队
             </h3>
             <p className="text-sm font-medium text-gray-400 dark:text-white">

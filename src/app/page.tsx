@@ -1,6 +1,6 @@
-import Hero from "@/components/hero";
 import UserExample from "@/app/user-example/page";
 import WeTeam from "@/app/we-team/page";
+import Hero from "@/components/hero";
 import Products from "@/components/product";
 export default function Home() {
   return (

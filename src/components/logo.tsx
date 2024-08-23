@@ -9,7 +9,7 @@ const Logo = () => {
           src="/logo/logo-left-title.png"
           alt="Logo"
           fill
-          className="h-full w-full  object-cover"
+          className="size-full object-cover"
         />
       </AspectRatio>
     </Link>

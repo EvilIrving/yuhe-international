@@ -11,7 +11,7 @@ const Hero = () => {
                   The People of the Kingdom
                 </h2>
 
-                <p className="leading-7 [&:not(:first-child)]:mt-6 mx-auto mb-4 max-w-[620px] text-lg font-medium text-body-color-2 dark:text-white">
+                <p className="text-body-color-2 mx-auto mb-4 max-w-[620px] text-lg font-medium leading-7 dark:text-white [&:not(:first-child)]:mt-6">
                   The king, seeing how much happier his subjects were, realized
                   the error of his ways and repealed the joke tax.
                 </p>
@@ -22,16 +22,16 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="absolute left-0 top-0 -z-10 h-full w-full opacity-20 bg-gradient-to-b from-primary to-transparent"></div>
+      <div className="to-transparent absolute left-0 top-0 -z-10 size-full bg-gradient-to-b from-primary opacity-20"></div>
       <Image
-        className="absolute left-0 top-0 -z-10 pointer-events-none select-none"
+        className="pointer-events-none absolute left-0 top-0 -z-10 select-none"
         src="/static/hero-shape-1.svg"
         width={411}
         height={276}
         alt="Image"
       />
       <Image
-        className="absolute right-0 top-0 -z-10 pointer-events-none select-none"
+        className="pointer-events-none absolute right-0 top-0 -z-10 select-none"
         src="/static/hero-shape-2.svg"
         width={820}
         height={692}

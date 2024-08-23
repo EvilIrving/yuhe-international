@@ -10,6 +10,10 @@ const config = {
   ],
   prefix: "",
   theme: {
+    fontFamily: {
+      sans: ["var(--font-sans)"],
+      mono: ["var(--font-mono)"],
+    },
     container: {
       center: true,
       padding: "1rem",
