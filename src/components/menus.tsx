@@ -35,7 +35,8 @@ const MenuItemComponent: React.FC<MenuItemComponentProps> = ({ item }) => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      llll阿发发
+   
+   
       <Link href={item.href}>
         <span className="text-body-color-2 dark:text-body-color flex py-2 text-lg font-semibold text-black hover:text-primary dark:hover:text-white lg:ml-2 lg:inline-flex lg:py-5 xl:ml-3 2xl:ml-3">
           {item.label}
