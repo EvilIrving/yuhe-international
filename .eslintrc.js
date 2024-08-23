@@ -18,7 +18,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
-    'sort-imports': 'on',
+    'sort-imports': 'off',
     'tailwindcss/no-custom-classname': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
