@@ -10,9 +10,9 @@ interface MenuItem {
 
 const MenuNav: React.FC = () => {
   const { links } = headerConfig;
-
   return (
-    <nav className=" ">
+    <nav>
+      hahah this is menu
       <ul className="flex items-center justify-center">
         {links.map((item) => (
           <MenuItemComponent key={item.label} item={item} />
@@ -35,8 +35,6 @@ const MenuItemComponent: React.FC<MenuItemComponentProps> = ({ item }) => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-   
-   
       <Link href={item.href}>
         <span className="text-body-color-2 dark:text-body-color flex py-2 text-lg font-semibold text-black hover:text-primary dark:hover:text-white lg:ml-2 lg:inline-flex lg:py-5 xl:ml-3 2xl:ml-3">
           {item.label}
