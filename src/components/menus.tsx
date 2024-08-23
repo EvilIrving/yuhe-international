@@ -12,6 +12,7 @@ const MenuNav: React.FC = () => {
   const { links } = headerConfig;
   return (
     <nav>
+      Tset Git
       <ul className="flex items-center justify-center">
         {links.map((item) => (
           <MenuItemComponent key={item.label} item={item} />
