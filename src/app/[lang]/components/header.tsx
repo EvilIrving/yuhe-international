@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 
+import LanguageToggle from "./language-toggle";
 import { ModeToggle } from "./theme-toggle";
 
 import Logo from "@/components/logo";
 import MenuNav from "@/components/menus";
-const Header = () => {
-  // const [language, setLanguage] = useState("en");
 
+const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,8 +38,7 @@ const Header = () => {
           <MenuNav />
           <div className="flex w-24 items-center justify-around">
             <ModeToggle />
-            <ModeToggle />
-            {/* <button onClick={handleLanguageChange}>Toggle Language</button> */}
+            <LanguageToggle />
           </div>
         </div>
       </div>
