@@ -88,6 +88,9 @@ const config = {
       backgroundColor: {
         "light-bg": "rgb(245,248,255)",
       },
+      transitionProperty: {
+        "translate-x": "translate-x",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import LanguageToggle from "./language-toggle";
+import LanguageToggle from "./lan";
 import { ModeToggle } from "./theme-toggle";
 
 import Logo from "@/components/logo";
@@ -36,7 +36,7 @@ const Header = () => {
             <Logo />
           </div>
           <MenuNav />
-          <div className="flex w-24 items-center justify-around">
+          <div className="flex w-32 items-center justify-around ">
             <ModeToggle />
             <LanguageToggle />
           </div>

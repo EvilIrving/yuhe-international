@@ -1,40 +1,30 @@
 "use client";
 
 import * as React from "react";
+import { useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
-
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
 export function ModeToggle() {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  const [enabled, setEnabled] = useState(theme === "dark");
+  useEffect(() => {
+    setEnabled(theme === "dark");
+  }, [theme]);
 
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+    setEnabled(!enabled);
+  };
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <SunIcon className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <MoonIcon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <button
+      role="switch"
+      aria-checked={enabled}
+      onClick={toggleTheme}
+      className="transition-border-color duration-250 relative block h-6 w-12 shrink-0 rounded-full border border-gray-50 bg-gray-100 px-2 py-1 outline-none ease-in-out hover:border-primary dark:border-gray-600  dark:bg-gray-800"
+    >
+      <span className="box-shadow-sm absolute left-2 top-1 size-6 rounded-full transition-translate-x duration-500 ease-in-out dark:translate-x-4">
+        {enabled ? <MoonIcon /> : <SunIcon />}
+      </span>
+    </button>
   );
 }

@@ -1,4 +1,4 @@
-import type { Locale } from "./i18n-config";
+import { type Locale } from "./i18n-config";
 
 import "server-only";
 
@@ -6,7 +6,7 @@ import "server-only";
 // We also get the default import for cleaner types
 const dictionaries = {
   en: () => import("./dictionaries/en.json").then((module) => module.default),
-  cn: () => import("./dictionaries/cn.json").then((module) => module.default),
+  zh: () => import("./dictionaries/cn.json").then((module) => module.default),
 };
 
 export const getDictionary = async (locale: Locale) =>
