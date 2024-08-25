@@ -1,63 +1,59 @@
 "use client";
-
-import * as React from "react";
 import { useState } from "react";
-import { GlobeIcon } from "@radix-ui/react-icons";
-import clsx from "clsx"; // For conditional classnames
+import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { i18n, type Locale } from "../../../../i18n-config";
+import { i18n } from "../../../../i18n-config";
 
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
+import { redirectedPathName } from "@/lib/utils";
 const LanguageToggle = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathName = usePathname();
-
-  const [currentLanguage, setCurrentLanguage] = useState("en");
-  const redirectedPathName = (locale: Locale) => {
-    if (!pathName) return "/";
-    const segments = pathName.split("/");
-    segments[1] = locale;
-    setCurrentLanguage(locale);
-    return segments.join("/");
-  };
-
-  const handleLanguageChange = (language: Locale) => {
-    redirectedPathName(language);
-  };
-
-  console.log(pathName, "pathName");
-
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <GlobeIcon className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        {i18n.locales.map((lang) => (
-          <DropdownMenuItem
-            key={lang}
-            className={clsx(
-              "cursor-pointer", // General pointer
-              "hover:bg-gray-200 hover:text-black" // Hover effect for other languages
-            )}
-          >
-            <Link href={"/" + lang} locale={lang}>
-              {lang}
-            </Link>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div
+      className="relative inline-block py-4 text-left"
+      onMouseEnter={() => setDropdownOpen(true)}
+      onMouseLeave={() => setDropdownOpen(false)}
+    >
+      <button className="flex items-center text-white transition-colors duration-300 hover:text-gray-400 focus:outline-none">
+        <Image
+          src="/icons/language.svg"
+          width={20}
+          height={20}
+          alt="Language"
+        />
+        <Image
+          src="/icons/chevron-down.svg"
+          className="pl-1"
+          width={16}
+          height={16}
+          alt="Language"
+        />
+      </button>
+
+      {dropdownOpen && (
+        <div className="absolute right-0 z-10 mt-2  w-32 rounded-md bg-slate-50 text-black shadow-lg   dark:bg-slate-800 dark:text-white">
+          <ul className="mx-2 py-2">
+            {i18n.langs.map((lang) => (
+              <li key={lang.code}>
+                <Link
+                  href={redirectedPathName(pathName, lang.code)}
+                  locale={lang.code}
+                  className={clsx(
+                    "block px-4 py-2 text-sm",
+                    "cursor-pointer rounded hover:bg-gray-200 hover:text-primary dark:bg-slate-700"
+                  )}
+                >
+                  {lang.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 };
 

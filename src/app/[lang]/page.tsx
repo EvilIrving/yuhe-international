@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { getDictionary } from "../../../get-dictionary";
 import { Locale } from "../../../i18n-config";
 
@@ -18,6 +20,8 @@ export default async function Home({
       <Hero />
       <p className="py-5 text-center text-2xl text-green-400">
         {dictionary["server-component"].welcome}
+
+        <Link href="/about">go to about page</Link>
       </p>
       {/* 用户案例 */}
       <UserExample />

@@ -11,7 +11,7 @@ export const footerConfig = {
       href: "https://wa.me/233540125194",
     },
     {
-      icon: "/social-link/gmail.svg",
+      icon: "/social-link/gmail.png",
       href: "#", // Replace with the actual email link
     },
   ],

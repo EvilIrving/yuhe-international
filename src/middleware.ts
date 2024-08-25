@@ -3,12 +3,22 @@ import Negotiator from "negotiator";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import { i18n } from "./i18n-config";
+import { i18n } from "../i18n-config";
 
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+  const isImageRequest =
+    request.url.endsWith(".png") ||
+    request.url.endsWith(".jpg") ||
+    request.url.endsWith(".jpeg") ||
+    request.url.endsWith(".gif") ||
+    request.url.endsWith(".svg");
+  // If it's an image request, return the default locale without matching
+  if (isImageRequest) {
+    return "";
+  }
 
   // @ts-expect-error locales are readonly
   const locales: string[] = i18n.locales;
@@ -48,6 +58,8 @@ export function middleware(request: NextRequest) {
 
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
+
+    console.log(`Locale: ${locale}`);
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,

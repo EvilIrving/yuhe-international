@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import LanguageToggle from "./lan";
+import LanguageToggle from "./language-toggle";
 import { ModeToggle } from "./theme-toggle";
 
 import Logo from "@/components/logo";

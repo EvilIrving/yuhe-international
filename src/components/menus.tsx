@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { headerConfig } from "@/config";
+import { redirectedPathName } from "@/lib/utils";
 interface MenuItem {
   label: string;
   href: string;
@@ -27,7 +29,6 @@ interface MenuItemComponentProps {
 
 const MenuItemComponent: React.FC<MenuItemComponentProps> = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <li
       className="group relative px-4 py-2"
