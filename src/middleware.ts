@@ -10,7 +10,7 @@ function getLocale(request: NextRequest): string | undefined {
   // 获取缓存中的语言
 
   const cachedLanguage = getCookie("userLanguage"); // 假设此函数获取缓存的用户语言
-  console.log(cachedLanguage, "cachedLanguage");
+  console.log(request, "request");
 
   if (cachedLanguage && i18n.locales.includes(cachedLanguage as "en" | "zh")) {
     return cachedLanguage; // 如果缓存中有有效语言，则优先返回
