@@ -1,24 +1,24 @@
 import { match as matchLocale } from "@formatjs/intl-localematcher";
+import { getCookie, setCookie } from "cookies-next";
 import Negotiator from "negotiator";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 import { i18n } from "../i18n-config";
-
+import { getCachedUserLanguage } from "./lib/cookies";
 function getLocale(request: NextRequest): string | undefined {
+  // 获取缓存中的语言
+
+  const cachedLanguage = getCookie("userLanguage"); // 假设此函数获取缓存的用户语言
+  console.log(cachedLanguage, "cachedLanguage");
+
+  if (cachedLanguage && i18n.locales.includes(cachedLanguage as "en" | "zh")) {
+    return cachedLanguage; // 如果缓存中有有效语言，则优先返回
+  }
+
   // Negotiator expects plain object so we need to transform headers
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
-  const isImageRequest =
-    request.url.endsWith(".png") ||
-    request.url.endsWith(".jpg") ||
-    request.url.endsWith(".jpeg") ||
-    request.url.endsWith(".gif") ||
-    request.url.endsWith(".svg");
-  // If it's an image request, return the default locale without matching
-  if (isImageRequest) {
-    return "";
-  }
 
   // @ts-expect-error locales are readonly
   const locales: string[] = i18n.locales;
@@ -36,16 +36,21 @@ function getLocale(request: NextRequest): string | undefined {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
-  // // If you have one
-  // if (
-  //   [
-  //     '/manifest.json',
-  //     '/favicon.ico',
-  //     // Your other files in `public`
-  //   ].includes(pathname)
-  // )
-  //   return
+  // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
+  // If you have one
+  if (
+    [
+      "/manifest.json",
+      "/favicon.ico",
+      // Your other files in `public`
+    ].includes(pathname) ||
+    pathname.indexOf("/icons") !== -1 ||
+    pathname.indexOf("/logo") !== -1 ||
+    pathname.indexOf("/social-link") !== -1 ||
+    pathname.indexOf("/images") !== -1 ||
+    pathname.indexOf("/static") !== -1
+  )
+    return;
 
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -59,7 +64,6 @@ export function middleware(request: NextRequest) {
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
 
-    console.log(`Locale: ${locale}`);
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
