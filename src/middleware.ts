@@ -1,35 +1,25 @@
 import { match as matchLocale } from "@formatjs/intl-localematcher";
-import { getCookie, setCookie } from "cookies-next";
 import Negotiator from "negotiator";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 import { i18n } from "../i18n-config";
-import { getCachedUserLanguage } from "./lib/cookies";
-function getLocale(request: NextRequest): string | undefined {
-  // 获取缓存中的语言
 
-  const cachedLanguage = getCookie("userLanguage"); // 假设此函数获取缓存的用户语言
-  console.log(request, "request");
+const cookieName = "NEXT_LOCALE";
 
-  if (cachedLanguage && i18n.locales.includes(cachedLanguage as "en" | "zh")) {
-    return cachedLanguage; // 如果缓存中有有效语言，则优先返回
+function getLocale(request: NextRequest): string {
+  if (request.cookies.has(cookieName)) {
+    return request.cookies.get(cookieName)!.value;
   }
 
-  // Negotiator expects plain object so we need to transform headers
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
-
   // @ts-expect-error locales are readonly
   const locales: string[] = i18n.locales;
-
-  // Use negotiator and intl-localematcher to get best locale
   const languages = new Negotiator({ headers: negotiatorHeaders }).languages(
     locales
   );
-
   const locale = matchLocale(languages, locales, i18n.defaultLocale);
-
   return locale;
 }
 
@@ -64,12 +54,16 @@ export function middleware(request: NextRequest) {
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
 
-    return NextResponse.redirect(
+    const response = NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
         request.url
       )
     );
+
+    response.cookies.set(cookieName, locale);
+
+    return response;
   }
 }
 
