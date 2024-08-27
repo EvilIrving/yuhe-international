@@ -50,12 +50,9 @@ const LanguageToggle = () => {
                 <Link
                   href={redirectedPathName(lang.code)}
                   locale={lang.code}
-                  aria-disabled={lang.code === currentLanguage}
                   className={clsx(
                     "block px-4 py-2 text-sm",
-                    lang.code === currentLanguage
-                      ? "cursor-default pointer-events-none"
-                      : "cursor-pointer rounded hover:bg-gray-200 hover:text-primary dark:bg-slate-700"
+                    "cursor-pointer rounded hover:bg-gray-200 hover:text-primary dark:bg-slate-700"
                   )}
                 >
                   {lang.label}
