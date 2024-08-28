@@ -34,13 +34,13 @@ const Header = () => {
           : "bg-transparent dark:bg-transparent"
       }`}
     >
-      <div className="container max-w-[1430px] ">
+      <div className="container max-w-[1430px]">
         <div className="relative -mx-4 flex items-center justify-between">
           <div className="w-60 max-w-full px-4">
             <Logo />
           </div>
           <MenuNav />
-          <div className="flex w-32 items-center justify-around ">
+          <div className="flex w-32 items-center justify-around">
             <ModeToggle />
             <LanguageToggle locale={locale} />
           </div>

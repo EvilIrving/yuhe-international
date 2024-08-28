@@ -1,8 +1,9 @@
 "use client";
-import { describe } from "node:test";
 
-import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
+import Autoplay from "embla-carousel-autoplay";
+
+import UserExampleItem from "./UserExampleItem";
 
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -13,8 +14,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-import UserExampleItem from "./UserExampleItem";
 
 export default function UserExample() {
   const [api, setApi] = React.useState<CarouselApi>();
