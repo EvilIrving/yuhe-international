@@ -41,7 +41,7 @@ const MenuItemComponent: React.FC<MenuItemComponentProps> = ({ item }) => {
 
       {item.subItems && (
         <ul
-          className={`absolute left-0 z-50 mt-4 w-64 rounded-lg border bg-white p-2 shadow-lg transition-opacity duration-200 ${
+          className={`absolute left-0 z-50 mt-2 w-64 rounded-lg border bg-white p-2 shadow-lg transition-opacity duration-200 ${
             isOpen ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         >

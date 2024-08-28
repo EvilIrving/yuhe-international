@@ -25,6 +25,7 @@ const LanguageToggle = ({ locale }: { locale: Locale }) => {
     <div
       className="relative inline-block py-4 text-left"
       onMouseEnter={() => setDropdownOpen(true)}
+      onMouseLeave={() => setDropdownOpen(false)}
     >
       <button className="flex items-center text-white transition-colors duration-300 hover:text-gray-400 focus:outline-none">
         <Image
