@@ -42,17 +42,17 @@ export const headerConfig = {
     { label: "工程机械", href: "/engineering" },
     { label: "农业机械", href: "/agricultural" },
     { label: "运输业务", href: "/transportation" },
-    {
-      label: "其他业务",
-      href: "#",
-      subItems: [
-        { label: "发展战略", href: "/blog-grid" },
-        { label: "全球业务", href: "/token-sale" },
-        { label: "Support Page", href: "/support" },
-        { label: "Signin Page", href: "/signin" },
-        { label: "Signup Page", href: "/signup" },
-      ],
-    },
+    // {
+    //   label: "其他业务",
+    //   href: "#",
+    //   subItems: [
+    //     { label: "发展战略", href: "/blog-grid" },
+    //     { label: "全球业务", href: "/token-sale" },
+    //     { label: "Support Page", href: "/support" },
+    //     { label: "Signin Page", href: "/signin" },
+    //     { label: "Signup Page", href: "/signup" },
+    //   ],
+    // },
     { label: "关于我们", href: "/about" },
   ],
 };
