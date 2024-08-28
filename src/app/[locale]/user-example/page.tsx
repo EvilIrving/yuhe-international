@@ -1,6 +1,8 @@
 "use client";
-import * as React from "react";
+import { describe } from "node:test";
+
 import Autoplay from "embla-carousel-autoplay";
+import * as React from "react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -11,6 +13,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+
+import UserExampleItem from "./UserExampleItem";
 
 export default function UserExample() {
   const [api, setApi] = React.useState<CarouselApi>();
@@ -30,16 +34,33 @@ export default function UserExample() {
     });
   }, [api]);
 
+  const UserExamples = [
+    {
+      src: "/images/user-example/example1.jpg",
+      desc: "我们在中国有这么多机器",
+      title: "挖掘机",
+    },
+    {
+      src: "/images/user-example/example2.jpg",
+      desc: "我们在中国有这么多机器",
+      title: "收割机",
+    },
+    {
+      src: "/images/user-example/example3.jpg",
+      desc: "我们在中国有这么多机器",
+      title: " 耕地机",
+    },
+  ];
+
   return (
     <section id="user-example" className="relative z-10 pb-28">
       <div className="container">
         <h3 className="mb-8 scroll-m-20 text-center text-2xl font-semibold tracking-tight">
           客户案例
         </h3>
-        <div className="mx-auto w-2/3">
+        <div className="mx-auto w-3/4">
           <Carousel
             setApi={setApi}
-            className="w-full"
             plugins={[
               Autoplay({
                 delay: 2000,
@@ -47,13 +68,11 @@ export default function UserExample() {
             ]}
           >
             <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
+              {Array.from({ length: UserExamples.length }).map((_, index) => (
                 <CarouselItem key={index}>
-                  <Card className="h-[350px] w-full">
-                    <CardContent className="flex  items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
+                  <Card className="h-[450px] w-full">
+                    <CardContent className="size-full pt-6">
+                      <UserExampleItem item={UserExamples[index]} />
                     </CardContent>
                   </Card>
                 </CarouselItem>

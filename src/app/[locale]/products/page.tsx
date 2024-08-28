@@ -48,7 +48,7 @@ const Products = () => {
             <div className="mx-auto p-8">
               <div className="fadeInUp mx-auto mb-16 max-w-[590px] text-center md:mb-20">
                 <h3 className="mb-8 scroll-m-20 text-center text-2xl font-semibold tracking-tight">
-                  Our Products
+                  我们的产品
                 </h3>
                 <p className="text-sm font-medium text-gray-400 dark:text-white">
                   服务团队是一支技术精湛、专业负责的工程师团队。他们经过徐工集团的严格培训和考核，具备丰富的技术知识和实践经验。
@@ -66,7 +66,7 @@ const Products = () => {
                         height={150}
                         src={product.icon}
                         alt={product.name}
-                        className="object-contain "
+                        className="object-contain"
                       />
                     </div>
                     <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-lg font-medium">

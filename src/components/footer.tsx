@@ -1,6 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 import Logo from "@/components/logo";
 import { footerConfig } from "@/pageConfig";
@@ -21,7 +21,7 @@ const Footer = () => {
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-4/12">
             <div className="wow fadeInUp mb-14 max-w-[330px] xl:mb-20">
-              <div className="w-36">
+              <div className="w-36 pb-5">
                 <Logo />
               </div>
               <p className="text-body-color-2 dark:text-body-color mb-10 text-sm font-normal">

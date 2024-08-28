@@ -1,10 +1,9 @@
 "use client";
-import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import { useState } from "react";
 
 import {
-  Link,
   Locale,
   localeNames,
   locales,
@@ -17,14 +16,9 @@ const LanguageToggle = ({ locale }: { locale: Locale }) => {
 
   const pathname = usePathname();
   const router = useRouter();
-
-  // const changeLocale = (code: Locale) => {
-  //   router.replace(pathname, { locale: code });
-  // };
   const changeLocale = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
     const target = e.target as HTMLElement;
     const code = target.dataset["locale"] as Locale;
-    console.log("changeLocale", e);
     router.replace(pathname, { locale: code });
   };
   return (
@@ -49,7 +43,7 @@ const LanguageToggle = ({ locale }: { locale: Locale }) => {
       </button>
 
       {dropdownOpen && (
-        <div className="absolute right-0 z-10 mt-2  w-32 rounded-md bg-slate-50 text-black shadow-lg   dark:bg-slate-800 dark:text-white">
+        <div className="absolute right-0 z-10 mt-2 w-32 rounded-md bg-slate-50 text-black shadow-lg dark:bg-slate-800 dark:text-white">
           <ul className="mx-2 py-2" role="select">
             {locales.map((lang) => (
               <li
@@ -61,7 +55,7 @@ const LanguageToggle = ({ locale }: { locale: Locale }) => {
                 className={clsx(
                   "block rounded px-4 py-2 text-sm",
                   lang === locale
-                    ? "cursor-pointer pointer-events-none"
+                    ? "pointer-events-none cursor-pointer"
                     : "cursor-pointer hover:bg-gray-200 hover:text-primary dark:bg-slate-700"
                 )}
               >
