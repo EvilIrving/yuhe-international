@@ -1,13 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useLocale } from "next-intl";
 
 import LanguageToggle from "./language-toggle";
 import { ModeToggle } from "./theme-toggle";
 
 import Logo from "@/components/logo";
 import MenuNav from "@/components/menus";
+import { Locale } from "@/i18n.config";
 
 const Header = () => {
+  const locale = useLocale() as Locale;
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,7 +42,7 @@ const Header = () => {
           <MenuNav />
           <div className="flex w-32 items-center justify-around ">
             <ModeToggle />
-            <LanguageToggle />
+            <LanguageToggle locale={locale} />
           </div>
         </div>
       </div>

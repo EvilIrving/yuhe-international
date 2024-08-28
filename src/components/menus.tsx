@@ -1,9 +1,7 @@
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-import { headerConfig } from "@/config";
-import { redirectedPathName } from "@/lib/utils";
+import { Link } from "@/i18n.config";
+import { headerConfig } from "@/pageConfig";
 interface MenuItem {
   label: string;
   href: string;
