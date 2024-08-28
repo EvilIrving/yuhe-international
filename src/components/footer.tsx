@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Logo from "@/components/logo";
-import { footerConfig } from "@/pageConfig";
+import { footerConfig } from "@/data.config";
 const Footer = () => {
   const {
     description,

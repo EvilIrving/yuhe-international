@@ -1,7 +1,7 @@
 import { useState } from "react";
 
+import { headerConfig } from "@/data.config";
 import { Link } from "@/i18n.config";
-import { headerConfig } from "@/pageConfig";
 interface MenuItem {
   label: string;
   href: string;

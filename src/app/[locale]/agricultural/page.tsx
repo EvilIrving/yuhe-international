@@ -7,11 +7,10 @@ const EngineeringPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
-    { name: "所有", count: 100, type: "all" },
-    { name: "装载机", count: 58, type: "loader" },
-    { name: "挖掘机", count: 39, type: "excavator" },
-    { name: "罐车", count: 24, type: "truck" },
-    { name: "精品二手设备", count: 35, type: "usedcar" },
+    { name: "所有", count: 24, type: "all" },
+    { name: "拖拉机", count: 100, type: "forklift" },
+    { name: "水稻收割机", count: 58, type: "harvester" },
+    { name: "农机配件", count: 39, type: "accessories" },
   ];
   return (
     <section id="engineering" className="pb-20 pt-[120px]">
@@ -19,7 +18,7 @@ const EngineeringPage = () => {
         <div className="relative bg-white p-4">
           {/* Title and Product Count */}
           <div className="mb-4 flex items-center">
-            <h2 className="mr-4 text-2xl font-bold">工程机械</h2>
+            <h2 className="mr-4 text-2xl font-bold">农业机械</h2>
             <span className="text-gray-600">
               共有 <strong> 100</strong> 件相关产品
             </span>
