@@ -15,4 +15,10 @@ type ProductConfig = {
   products: Product[];
 };
 
-export type { Product, ProductConfig };
+type Service = {
+  name: string;
+  desc?: string;
+  src: string;
+};
+
+export type { Product, ProductConfig, Service };

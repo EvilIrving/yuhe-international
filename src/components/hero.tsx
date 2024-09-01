@@ -8,11 +8,11 @@ const Hero = () => {
             <div className="opacity: 1; transform: none;">
               <div className="mx-auto max-w-[1000px] text-center">
                 <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-                  我们的承诺
+                  YUHE 裕禾
                 </h2>
 
                 <p className="text-body-color-2 mb-4 w-full text-lg font-medium leading-7 dark:text-white [&:not(:first-child)]:mt-6">
-                  裕禾船务深知国际物流的复杂与挑战，正如航海征程中每一次乘风破浪的冒险。我们始终坚持以客户为中心，致力于提供高效、安全、专业的物流解决方案。无论是跨越大洋的集装箱运输，还是特殊货物的细致处理，我们都以高度的责任心和精湛的服务确保每一单业务的成功。裕禾船务不仅是您可信赖的物流合作伙伴，更是您全球贸易之旅上的坚实后盾。我们坚守承诺，为您铺就通向世界的广阔航道。
+                  加纳YUHE公司成立于2017年，办公室位于北部城市Tamale。是一家从事工程建筑、工程机械进口、农业机械进口、网站建设以及国际货物运输的集团公司。本公司重视客户是上帝的经营理念，以诚信为基本服务准则。通过全面的产品库和强大的开发能力，为客户提供价格低廉、品质上乘的相关产品和运输服务。有任何需求请联系我们，我们一定会提供优质的服务。
                 </p>
               </div>
             </div>

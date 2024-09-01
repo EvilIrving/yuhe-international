@@ -69,7 +69,7 @@ export default function UserExample() {
             <CarouselContent>
               {Array.from({ length: UserExamples.length }).map((_, index) => (
                 <CarouselItem key={index}>
-                  <Card className="h-[450px] w-full">
+                  <Card className="relative h-[250px] w-full md:h-[450px] xl:h-[600px]">
                     <CardContent className="size-full pt-6">
                       <UserExampleItem item={UserExamples[index]} />
                     </CardContent>

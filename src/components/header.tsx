@@ -30,7 +30,7 @@ const Header = () => {
     <header
       className={`fixed top-0 z-50 flex w-full items-center ${
         isScrolled
-          ? "shadow-sticky dark:bg-dark/80 bg-white/80 backdrop-blur-sm"
+          ? "shadow-sticky bg-white/80 backdrop-blur-sm dark:bg-slate-800/80"
           : "bg-transparent dark:bg-transparent"
       }`}
     >

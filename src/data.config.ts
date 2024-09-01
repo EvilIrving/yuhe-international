@@ -1,4 +1,4 @@
-import { Product, ProductConfig } from "@/type";
+import { ProductConfig } from "@/type";
 
 export const footerConfig = {
   logo: "/logo/logo-left-title.png",
@@ -31,8 +31,8 @@ export const footerConfig = {
     { title: "24/7 Supports", href: "#" },
     { title: "On Point FAQ", href: "#" },
   ],
-  copyrightText:
-    "© Crypto - All Rights Reserved, Crafted by Next.js Templates",
+  // copyrightText: "© Yuhe - All Rights Reserved",
+  copyrightText: "© 2019-2024 Yuhe - All Rights Reserved, Powered by Yuhe",
   footerShape1: "/static/footer-shape-1.svg",
   footerShape2: "/static/footer-shape-2.svg",
 };
@@ -265,3 +265,40 @@ export const productsConfig: ProductConfig[] = [
     ],
   },
 ];
+
+export const transportationConfig = {
+  overview:
+    "裕禾船务专注于提供高效、经济的国际物流解决方案，服务网络遍布全球，包括非洲、欧洲、地中海、南美、北美、中东、东南亚等地区。我们与全球90%以上的知名集装箱班轮公司建立了长期合作关系，并通过自主研发的运价平台，为客户提供全面的航线选择、船期信息和个性化的物流服务。我们的服务不仅限于海运，还涵盖了空运、多式联运、特种货物运输、散杂货运输、仓储配送以及清关报检等全方位物流服务，满足客户多样化的运输需求。",
+  services: [
+    {
+      name: "集装箱运输及多式联运",
+      desc: "裕禾船务提供全球范围内的集装箱运输服务，业务区域覆盖非洲、欧洲、地中海等主要港口。我们与多家国际班轮公司合作，确保客户享有优惠的运价和灵活的船期选择。此外，我们的多式联运服务结合海运、铁路、公路和航空等多种运输方式，为客户提供定制化的物流解决方案，满足特殊运输需求。",
+      src: "/images/transportation/01.png",
+    },
+    {
+      name: "特种货物及危险品运输",
+      desc: "针对超大、超重机械、危险品和化工品、冷藏货物等特种货物，裕禾船务提供专业的运输服务。我们拥有丰富的操作经验和专业的运输设备，确保货物安全、高效地到达目的地。无论是大型建设项目还是危险品运输，我们都能提供量身定制的物流方案。",
+      src: "/images/transportation/01.png",
+    },
+    {
+      name: "散杂货运输及项目物流",
+      desc: "裕禾船务为原材料、大宗商品、大型项目建设等提供散杂货运输服务。我们与散杂船船东和合作伙伴建立了紧密的合作关系，确保为客户提供快速、可靠的运输方案。无论是散装货物还是特殊项目物流，我们都能提供专业的服务和支持。",
+      src: "/images/transportation/01.png",
+    },
+    {
+      name: "国际航空运输代理",
+      desc: "裕禾船务的国际航空运输代理服务专注于“小而精且急”的货物运输需求。我们与各大航空公司合作，提供快速、可靠的空运服务。我们的服务宗旨是“专业受托，快速反应，使命必达”，确保客户的货物能够安全、及时地到达目的地。",
+      src: "/images/transportation/01.png",
+    },
+    {
+      name: "仓储及拆装箱物流配送",
+      desc: "裕禾船务提供全面的仓储和物流配送服务，包括集装箱货物、散杂货物、大件货物的仓储、内装箱、拆箱、分拨和中转。我们的仓库供应商地理位置优越，服务专业，能够满足不同货物类别的存储和操作需求。同时，我们的物流车队供应商提供卫星定位服务，确保货物运输的安全性和及时性。",
+      src: "/images/transportation/01.png",
+    },
+    {
+      name: "代理清关报检及代办国际运输保险",
+      desc: "裕禾船务为客户提供一站式的清关、报检和保险服务。我们的清关服务覆盖全球主要口岸，由可靠的当地代理负责安排。报检业务专注于中国大陆的进出口商检、食品和卫生检验检疫。我们的保险服务快速出单，费率优惠，为客户提供全面的货物运输保障。",
+      src: "/images/transportation/01.png",
+    },
+  ],
+};

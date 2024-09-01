@@ -34,7 +34,7 @@ const MenuItemComponent: React.FC<MenuItemComponentProps> = ({ item }) => {
       onMouseLeave={() => setIsOpen(false)}
     >
       <Link href={item.href}>
-        <span className="text-body-color-2 dark:text-body-color flex py-2 text-lg font-semibold text-black hover:text-primary dark:hover:text-white lg:ml-2 lg:inline-flex lg:py-5 xl:ml-3 2xl:ml-3">
+        <span className="flex py-2 text-lg font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary lg:ml-2 lg:inline-flex lg:py-5 xl:ml-3 2xl:ml-3">
           {item.label}
         </span>
       </Link>
@@ -48,7 +48,7 @@ const MenuItemComponent: React.FC<MenuItemComponentProps> = ({ item }) => {
           {item.subItems.map((subItem) => (
             <li key={subItem.label}>
               <Link href={subItem.href}>
-                <span className="ud-menu-scroll text-body-color-2 dark:text-body-color flex py-2 text-lg font-semibold text-black hover:text-primary dark:hover:text-white lg:ml-5 lg:inline-flex lg:py-3 xl:ml-5 2xl:ml-7">
+                <span className="ud-menu-scroll flex py-2 text-lg font-semibold text-black hover:text-primary dark:text-white dark:hover:text-primary lg:ml-5 lg:inline-flex lg:py-3 xl:ml-5 2xl:ml-7">
                   {subItem.label}
                 </span>
               </Link>
