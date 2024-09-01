@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 import ProductsGrid from "@/components/common/cards";
-
+import { productsConfig } from "@/data.config";
 const EngineeringPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
@@ -13,6 +13,7 @@ const EngineeringPage = () => {
     { name: "罐车", count: 24, type: "truck" },
     { name: "精品二手设备", count: 35, type: "usedcar" },
   ];
+
   return (
     <section id="engineering" className="pb-20 pt-[120px]">
       <div className="container">
@@ -51,7 +52,10 @@ const EngineeringPage = () => {
         </div>
 
         <div>
-          <ProductsGrid selectedCategory={selectedCategory} />
+          <ProductsGrid
+            selectedCategory={selectedCategory}
+            products={productsConfig[0].products}
+          />
         </div>
       </div>
     </section>

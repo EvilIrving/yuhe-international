@@ -1,5 +1,6 @@
-import Gallerys from "@/components/gallery";
+import Image from "next/image";
 
+import Gallerys from "@/components/gallery";
 export default function WeTeam() {
   return (
     <section id="we-team" className="relative z-10 pb-28">
@@ -19,6 +20,14 @@ export default function WeTeam() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="absolute bottom-0 left-0 -z-10">
+        <Image
+          src="static/timeline.svg"
+          width={435}
+          height={959}
+          alt="timeline"
+        />
       </div>
     </section>
   );

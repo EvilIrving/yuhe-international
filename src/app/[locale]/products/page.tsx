@@ -79,6 +79,14 @@ const Products = () => {
           </div>
         </div>
       </div>
+      <div className="absolute -top-32 right-0 -z-10">
+        <Image
+          src="static/token-sale-shape.svg"
+          width={311}
+          height={768}
+          alt="shape"
+        />
+      </div>
     </section>
   );
 };

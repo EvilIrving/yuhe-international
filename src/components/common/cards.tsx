@@ -2,20 +2,18 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const ProductCard = ({
-  product,
-}: {
-  product: {
-    name: string;
-    category: string;
-    description: string;
-    image: string;
-    parameters: {
-      label: string;
-      value: string;
-    }[];
-  };
-}) => {
+interface Product {
+  name: string;
+  type: string;
+  typeName: string;
+  desc: string;
+  smallImg: string;
+  images: string;
+  features: string;
+  parameter: string;
+}
+
+const ProductCard = ({ product }: { product: Product }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -26,7 +24,7 @@ const ProductCard = ({
     >
       {/* Product Image */}
       <Image
-        src={product.image}
+        src={product.smallImg}
         alt={product.name}
         width={300}
         height={200}
@@ -35,72 +33,22 @@ const ProductCard = ({
 
       {/* Product Name */}
       <h2 className="mt-4 text-lg font-bold">{product.name}</h2>
-      <p className="text-gray-500">{product.description}</p>
-
-      {/* Product Parameters (Visible only on hover) */}
-      {isHovered && (
-        <div className="absolute inset-x-0 bottom-0 rounded-b-lg bg-white/90 p-4 shadow-lg">
-          <ul>
-            {product.parameters.map((param, index) => (
-              <li key={index} className="text-sm text-gray-600">
-                {param.label}: {param.value}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <p className="text-gray-500">{product.desc}</p>
     </div>
   );
 };
 
-const ProductsGrid = ({ selectedCategory }: { selectedCategory: string }) => {
-  const products = [
-    {
-      name: "XGH5120ZYSL6",
-      category: "loader",
-      description: "后装压缩式垃圾车",
-      image: "/images/products/engineer/loader.png", // Replace with actual image path
-      parameters: [
-        { label: "车厢有效容积(m³)", value: "10" },
-        { label: "压缩循环时间(s)", value: "≤14" },
-      ],
-    },
-    {
-      name: "XGH5120ZYSL6",
-      category: "truck",
-      description: "后装压缩式垃圾车",
-      image: "/images/products/engineer/loader.png", // Replace with actual image path
-      parameters: [
-        { label: "车厢有效容积(m³)", value: "10" },
-        { label: "压缩循环时间(s)", value: "≤14" },
-      ],
-    },
-    {
-      name: "XGH5120ZYSL6",
-      category: "loader",
-      description: "后装压缩式垃圾车",
-      image: "/images/products/engineer/loader.png", // Replace with actual image path
-      parameters: [
-        { label: "车厢有效容积(m³)", value: "10" },
-        { label: "压缩循环时间(s)", value: "≤14" },
-      ],
-    },
-    {
-      name: "XGH5120ZYSL6",
-      category: "loader",
-      description: "后装压缩式垃圾车",
-      image: "/images/products/engineer/loader.png", // Replace with actual image path
-      parameters: [
-        { label: "车厢有效容积(m³)", value: "10" },
-        { label: "压缩循环时间(s)", value: "≤14" },
-      ],
-    },
-  ];
-
+const ProductsGrid = ({
+  selectedCategory,
+  products,
+}: {
+  selectedCategory: string;
+  products: Product[];
+}) => {
   const filteredProducts =
     selectedCategory === "all"
       ? products
-      : products.filter((product) => product.category === selectedCategory);
+      : products.filter((product) => product.type === selectedCategory);
   return (
     <div>
       {filteredProducts.length > 0 ? (
